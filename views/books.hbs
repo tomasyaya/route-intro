@@ -1,0 +1,17 @@
+<div>
+    <h1>Books</h1>
+    <form action="/books" method="POST">
+        <label for="title">title</label>
+        <input type="text" name="title" id="title">
+        <label for="description">description</label>
+        <input type="text" name="description" id="description">
+        <label for="author">author</label>
+        <input type="text" name="author" id="author">
+        <label for="rating">rating</label>
+        <input type="number" name="rating" id="rating">
+        <button type="submit">New Book</button>
+    </form>
+    {{#each books}}
+    {{> book}}
+    {{/each}}
+</div>

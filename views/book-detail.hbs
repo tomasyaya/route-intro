@@ -1,0 +1,17 @@
+<div>
+    <form action="/books/{{_id}}" method="POST">
+        <label for="title">title</label>
+        <input type="text" name="title" id="title">
+        <label for="description">description</label>
+        <input type="text" name="description" id="description">
+        <label for="author">author</label>
+        <input type="text" name="author" id="author">
+        <label for="rating">rating</label>
+        <input type="number" name="rating" id="rating">
+        <button type="submit">Edit Book</button>
+    </form>
+    <h3>{{title}}</h3>
+    <p>{{description}}</p>
+    <p>{{author}}</p>
+    <p>{{rating}}</p>
+</div>
