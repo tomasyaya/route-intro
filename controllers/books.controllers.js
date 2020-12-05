@@ -36,8 +36,19 @@ const updateBook = async (req, res) => {
     const updatedBook = await Book.findByIdAndUpdate(bookId, req.body, {
       new: true,
     });
-    console.log(updatedBook);
     res.render("book-detail", updatedBook);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const deleteBook = async (req, res) => {
+  try {
+    const { bookId } = req.params;
+    console.log(bookId);
+    const removedBook = await Book.findByIdAndRemove(bookId);
+    console.log("removed book", removedBook);
+    res.redirect("/books");
   } catch (err) {
     console.error(err);
   }
@@ -48,4 +59,5 @@ module.exports = {
   getBook,
   createBook,
   updateBook,
+  deleteBook,
 };

@@ -5,12 +5,14 @@ const {
   getBooks,
   updateBook,
   createBook,
+  deleteBook,
 } = require("../controllers/books.controllers");
 
 router
   .get("/", getBooks)
   .get("/:bookId", getBook)
   .post("/", createBook)
-  .post("/:bookId", updateBook);
+  .post("/:bookId/delete", deleteBook)
+  .post("/:bookId/update", updateBook);
 
 module.exports = router;
