@@ -23,11 +23,23 @@ const addBook = async (req, res) => {
       { $push: { books: bookId } },
       { new: true }
     );
-    console.log("updated user", updatedUser);
     res.send(updatedUser);
   } catch (err) {
     console.error(err);
   }
 };
 
-module.exports = { createUser, showUserForm, addBook };
+const getUser = async (req, res) => {
+  try {
+    const { username } = req.params;
+    const user = await User.findOne({ username }).populate(
+      "books",
+      "title description"
+    );
+    res.send(user);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+module.exports = { createUser, showUserForm, addBook, getUser };
